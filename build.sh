@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-# --<============================================================>--
-#    THE FIRST COMMAND_LINE OPTION IS NEOVIM's GIT REPOSITORY DIR
-# --<============================================================>--
+# --<====================================================>--
+#    THE FIRST COMMAND_LINE OPTION IS NEOVIM's SOURCE DIR
+# --<====================================================>--
 
-NVIM_GIT_DIR=${1:-"~/.work/neovim"}
+SOURCE_DIR=${1:-"~/neovim"}
+
+BUILD_TMP_DIR="~/.nvim_builder_tmp"
 
 BUILD_DATE=`date +'%F'`
 
@@ -35,10 +37,11 @@ die () {
 #    ----< MAIN PROCESS >----
 
 
-[[ -d "${NVIM_GIT_DIR}/.git" ]] || \
-    die "Git repository was not found in ${NVIM_GIT_DIR}."
+[[ -d "${BUILD_TMP_DIR}" ]] && rm ${BUILD_TMP_DIR}
+cp -r ${SOURCE_DIR} ${BUILD_TMP_DIR}
 
-cd $NVIM_GIT_DIR
+[[ -d "${SOURCE_DIR}/.git" ]] || \
+    die "Git repository was not found in ${SOURCE_DIR}."
 
 git pull
 putlog "Pulled the git repository."
