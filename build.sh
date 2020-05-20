@@ -56,3 +56,4 @@ sudo update-alternatives --install /usr/local/bin/nvim neovim ${OUT_DIR}/bin/nvi
 sudo update-alternatives --display neovim
 putlog "Older nvim link was switched to new one."
 
+rm -rf ${BUILD_TMP_DIR}
