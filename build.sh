@@ -52,6 +52,7 @@ putlog "Build new NeoVim done."
 sudo make install
 putlog "Installing NeoVim to ${OUT_DIR} done."
 
-sudo update-alternatives --install /usr/local/bin/nvim neovim ${OUT_DIR}/bin/nvim 100
+sudo update-alternatives --install /usr/local/bin/nvim neovim ${OUT_DIR}/bin/nvim 101
+sudo update-alternatives --display neovim
 putlog "Older nvim link was switched to new one."
 
