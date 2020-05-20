@@ -5,7 +5,7 @@ set -e
 #    THE FIRST COMMAND_LINE OPTION IS NEOVIM's SOURCE DIR
 # --<====================================================>--
 
-SOURCE_DIR=${1:-"~/neovim"}
+SOURCE_DIR=${1:-"./"}
 
 BUILD_TMP_DIR="~/.nvim_builder_tmp"
 
