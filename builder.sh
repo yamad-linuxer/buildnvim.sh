@@ -42,13 +42,13 @@ fi
 [[ -d "${BUILDER_TMP_DIR}" ]] && rm -rf ${BUILDER_TMP_DIR}
 cp -r ${SOURCE_DIR} ${BUILDER_TMP_DIR}
 
-[[ -d "${SOURCE_DIR}/.git" ]] || \
-    die "Git repository was not found in ${SOURCE_DIR}."
+#[[ -d "${SOURCE_DIR}/.git" ]] || \
+#    die "Git repository was not found in ${SOURCE_DIR}."
 
 cd ${BUILDER_TMP_DIR}
 
-git pull
-putlog "Pulled the git repository."
+#git pull
+#putlog "Pulled the git repository."
 
 make -j5 CMAKE_INSTALL_PREFIX=${DIST_DIR}
 putlog "Build new NeoVim done."
